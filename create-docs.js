@@ -1,5 +1,7 @@
 const glob = require( "glob" );
 
+var wordpressDir = process.argv.slice(2);
+
 const ignoredFiles = [
 	"Gruntfile.js",
 	"create-docs.js",
@@ -16,7 +18,7 @@ const ignoredFiles = [
 	"src/wp-admin/js/customize-controls.js",
 ];
 
-let files = glob( "**/*.js", {}, ( err, files ) => {
+let files = glob( wordpressDir + "**/*.js", {}, ( err, files ) => {
 	files = files.filter( ( file ) => {
 		return ! file.endsWith( ".min.js" );
 	} );
@@ -41,3 +43,4 @@ let files = glob( "**/*.js", {}, ( err, files ) => {
 	
 	console.log( `documentation build ${files} -f html -o documentation` );
 } );
+
