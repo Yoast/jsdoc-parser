@@ -16,11 +16,11 @@ const ignoredFiles = [
 	"src/wp-includes/js/wp-api.js",
 	"src/wp-admin/js/updates.js",
 	"src/wp-admin/js/customize-controls.js",
-].map( path => wordpressDir + path );
+].map( path => wordpressDir + "/" + path );
 
 let files = glob( wordpressDir + "/**/*.js", {}, ( err, files ) => {
 	files = files.filter( ( file ) => {
-		return ! file.endsWith( wordpressDir + "/.min.js" );
+		return ! file.endsWith( ".min.js" );
 	} );
 	
 	files = files.filter( ( file ) => {
