@@ -1,0 +1,24 @@
+{
+    "name": "yoast/jsdoc-parser",
+    "description": "Static code parser for the WordPress JavaScript source.\"",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": "^7.1",
+        "composer/installers": "^1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Team Yoast",
+            "email": "support@yoast.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Yoast\\Tools\\JSDocParser\\": "src"
+        }
+    }
+}
