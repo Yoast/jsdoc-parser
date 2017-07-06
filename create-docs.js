@@ -20,15 +20,15 @@ const ignoredFiles = [
 
 let files = glob( wordpressDir + "/**/*.js", {}, ( err, files ) => {
 	files = files.filter( ( file ) => {
-		return ! file.endsWith( ".min.js" );
+		return ! file.endsWith( wordpressDir + "/.min.js" );
 	} );
 	
 	files = files.filter( ( file ) => {
-		return ! file.startsWith( "out" );
+		return ! file.startsWith( wordpressDir + "/out" );
 	} );
 	
 	files = files.filter( ( file ) => {
-		return ! file.startsWith( "tests" );
+		return ! file.startsWith( wordpressDir + "/tests" );
 	} );
 
 	files = files.filter( ( file ) => {
@@ -36,7 +36,7 @@ let files = glob( wordpressDir + "/**/*.js", {}, ( err, files ) => {
 	} );
 
 	files = files.filter( ( file ) => {
-		return ! file.startsWith( "src/wp-includes/js/jquery" );
+		return ! file.startsWith( wordpressDir + "/src/wp-includes/js/jquery" );
 	} );
 
 	files = files.join( " " );
