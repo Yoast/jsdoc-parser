@@ -66,13 +66,11 @@ function output_documentation( files, destination = "./documentation" ) {
 
 	return documentation
 		.build( files, {} )
-//		.catch( error => { errors.push( error ); return; } )
 	    .then( result => {
-	    	console.log( "hi" );
 	    	resultOutput.results = documentation.formats.html( result, {} )
-	    } )
-	    .catch( error => { errors.push( error ); return; } )
-		.then( results => resultOutput );
+
+		    return resultOutput;
+	    } );
 }
 
 let startingDirectory = process.argv[2].replace(/\/$/, "");
@@ -83,10 +81,13 @@ let files = glob( `${startingDirectory}/**/*.js`, {}, ( err, files ) => {
 	let l_files = files.slice( 0, 19 );
 	let completed = 0;
 
+
 //	for ( let file in l_files ) {
+//	let output = output_documentation( l_files );
 	let output = output_documentation( l_files );
 
 	output.then( output => {
+		console.log( output );
 		output_to_file( output.results, "./documentation" )
 	} ).catch( ( err ) => {
 		console.log( err );
