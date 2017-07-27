@@ -80,18 +80,14 @@ let startingDirectory = process.argv[2].replace(/\/$/, "");
 let files = glob( `${startingDirectory}/**/*.js`, {}, ( err, files ) => {
 	files = filterIgnoredFiles( files, startingDirectory );
 
-	let l_files = files.slice( 0,  );
+	let l_files = files.slice( 0, 19 );
 	let completed = 0;
 
 //	for ( let file in l_files ) {
-	let output = output_documentation( files[0] );
+	let output = output_documentation( l_files );
 
 	output.then( output => {
-
-		console.log( output );
-
-
-		output_to_file( output.results, "./documentation2" )
+		output_to_file( output.results, "./documentation" )
 	} ).catch( ( err ) => {
 		console.log( err );
 
