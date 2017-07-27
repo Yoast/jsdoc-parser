@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "documentation": "^4.0.0-rc.1",
+    "glob": "^7.1.2",
+    "stream-array": "^1.1.2",
+    "vinyl-fs": "^2.4.4"
+  }
+}
